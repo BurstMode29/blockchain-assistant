@@ -1,0 +1,219 @@
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+    /* Radial Gradient: Chorek White to Grey, with Black in corners */
+    background: radial-gradient(circle,
+            /* rgb(35, 20, 52) 0%, */
+            /* Light Chorek White */
+            rgb(66, 61, 98) 30%,
+            /* Grey */
+            rgb(0, 0, 0) 100%
+            /* Black */
+        );
+    color: white;
+    /* Ensures text is readable */
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* color: var(--header-text); */
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 16px;
+}
+
+header h1 {
+    font-family: "Phudu", serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+
+    overflow: hidden;
+    /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange;
+    /* The typewriter cursor */
+    white-space: nowrap;
+    /* Keeps the content on a single line */
+    margin: 0 auto;
+    /* Centers the text */
+    letter-spacing: .15em;
+    /* Adjust as needed */
+
+    animation:
+        typing 2s steps(30, end) forwards,
+        blink-caret 0.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    /* Gradual fade-in */
+    100% {
+        width: 30%;
+    }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+
+    0%,
+    100% {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: orange;
+    }
+}
+
+/* Responsive Scaling */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 18px;
+        /* Adjust font size for small screens */
+        letter-spacing: 0.1em;
+    }
+
+    @keyframes typing {
+        100% {
+            width: 100%;
+        }
+    }
+}
+
+
+#chat-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 16px;
+
+    /* Frosted Glass Effect */
+    background: rgba(255, 255, 255, 0.2);
+    /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    /* Blurred glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari support */
+
+    /* Soft Borders & Shadow for Depth */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.trademark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 170px;
+    width: 96%;
+    z-index: -1;
+
+    animation: smoothFade 3s ease-in-out infinite alternate;
+    opacity: 0.15;
+}
+
+@keyframes smoothFade {
+    0% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+
+    100% {
+        opacity: 0.15;
+    }
+}
+
+
+#chatbox {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    height: 400px;
+    scrollbar-width: thin;
+}
+
+#conversation {
+    display: flex;
+    flex-direction: column;
+}
+
+#conversation .message {
+    margin: 5px 0;
+}
+
+#conversation .user {
+    align-self: flex-end;
+    background: #adff64;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#conversation .bot {
+    align-self: flex-start;
+    background: #6c9dff;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#user-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+#message {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 15px;
+    font-family: "Phudu", serif;
+    text-align: center;
+}
+
+/* Break Points */
+@media only screen and (max-width: 768px) {
+    #chat-container {
+        margin: 5px;
+    }
+}
